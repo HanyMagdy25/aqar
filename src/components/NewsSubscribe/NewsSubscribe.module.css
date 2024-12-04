@@ -1,0 +1,77 @@
+.newsSubscribe {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.form {
+  margin-inline: auto;
+  max-width: 720px;
+  width: 100%;
+}
+
+.formTitle {
+  font-size: 40px;
+  font-weight: 500;
+  color: #21203c;
+  margin-bottom: 10px;
+}
+.formDescription {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #002e50;
+}
+.inputDiv {
+  /* border: 1px solid #cbcbcb; */
+  margin-bottom: 10px;
+}
+
+.inputDiv input,
+.inputDiv textarea {
+  width: 100% !important;
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.9rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border: 1px solid #cbcbcb;
+  resize: none;
+  height: unset !important;
+}
+.inputDiv input:focus,
+.inputDiv textarea:focus {
+  outline: none;
+}
+.inputDiv .flag-dropdown {
+  display: none !important;
+}
+
+.submitContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.checkbox {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.asterisk {
+  color: #979797;
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+.submitContent button {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  max-width: 300px;
+  border-radius: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+  color: 18px;
+  background-color: var(--primary-color);
+}
