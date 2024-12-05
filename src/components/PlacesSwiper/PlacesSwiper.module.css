@@ -1,0 +1,70 @@
+.placesSwiper {
+  margin-top: 30px;
+}
+.oneCard {
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.oneCard img {
+  width: 100%;
+  height: 127px;
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  background-size: cover;
+}
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  transition: var(--transition);
+}
+/* Media Queries */
+@media screen and (max-width: 786px) {
+  .oneCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    padding: 10px 6px;
+    border-radius: 30px;
+    min-width: 80px;
+  }
+  .oneCard:hover {
+    background: var(--primary-color);
+  }
+  .title {
+    font-size: 16px;
+    color: var(--primary-color);
+    width: 100%;
+    z-index: 9;
+    position: unset;
+    transform: unset;
+  }
+  .oneCard:hover .title {
+    color: #fff;
+  }
+  .oneCard img,
+  .overlay {
+    display: none;
+  }
+  .overlay {
+    display: none;
+  }
+}

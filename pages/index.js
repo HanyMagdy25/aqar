@@ -7,6 +7,10 @@ import MainBanner from "@/src/components/MainBanner/MainBanner";
 import NewsSubscribe from "@/src/components/NewsSubscribe/NewsSubscribe";
 import Insights from "@/src/components/Insights/Insights";
 import NewProjects from "@/src/components/NewProjects/NewProjects";
+import PlacesSwiper from "@/src/components/PlacesSwiper/PlacesSwiper";
+import Features from "@/src/components/Features/Features";
+import SecondBanner from "@/src/components/SecondBanner/SecondBanner";
+import Map from "@/src/components/Map/Map";
 
 export default function Home() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -22,6 +26,10 @@ export default function Home() {
         <div className={styles.page}>
           <Header setShowSidebar={setShowSidebar} />
           <MainBanner />
+          <PlacesSwiper />
+          <Features />
+          <Map />
+          <SecondBanner />
           <NewProjects />
           <Insights />
           <NewsSubscribe />

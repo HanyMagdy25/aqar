@@ -82,11 +82,11 @@ const NewProjects = () => {
     <section className={styles.insights}>
       <div className={styles.inner}>
         <div className={styles.head}>
-          <h2 className={styles.headTitle}>Insights From Experts</h2>
+          <h2 className={styles.headTitle}>New Projects</h2>
           <p className={styles.headDescription}>
-            Stay up to date on the latest news and analysis in real estate! Aqar
-            Market offers many articles and reports to help you with your
-            property hunt.
+            We have a magnificent selection of upcoming and new projects that
+            will open your eyes to the future potential. These properties make
+            tomorrow worth waiting for.
           </p>
         </div>
 
@@ -96,27 +96,22 @@ const NewProjects = () => {
             slidesPerView={1}
             breakpoints={{
               0: {
-                slidesPerView: 1.8,
+                slidesPerView: 1,
                 spaceBetween: 20,
               },
               410: {
-                slidesPerView: 2,
+                slidesPerView: 1.2,
                 spaceBetween: 20,
               },
-              500: {
-                slidesPerView: 2.5,
-              },
+
               576: {
-                slidesPerView: 3,
+                slidesPerView: 1.5,
               },
               768: {
-                slidesPerView: 3.5,
-              },
-              820: {
-                slidesPerView: 4,
+                slidesPerView: 2,
               },
               992: {
-                slidesPerView: 3,
+                slidesPerView: 2.8,
               },
               1200: {
                 slidesPerView: 3.5,

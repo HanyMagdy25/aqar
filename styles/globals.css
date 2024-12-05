@@ -54,6 +54,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.divSwiperScroll .swiper {
+  padding-bottom: 30px !important;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -76,7 +79,11 @@ button {
 .swiper-grid .swiper-slide {
   margin-bottom: 30px;
 }
-
+.swiper-scrollbar-drag {
+  background-color: var(--primary-color) !important;
+  height: 150% !important;
+  top: -1px !important;
+}
 .container {
   width: 100%;
   padding-right: 15px;
@@ -113,6 +120,13 @@ button {
 }
 .swiper-pagination-bullet-active {
   background: var(--primary-color) !important;
+}
+
+.react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  /* border: none !important; */
+  padding-left: 5px;
+  border-right: none !important;
 }
 @media screen and (min-width: 992px) {
   .swiper-pagination {

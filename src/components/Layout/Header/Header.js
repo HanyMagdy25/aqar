@@ -1,13 +1,11 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
-import BagIcon from "@/src/assets/bag.svg";
-import UserIcon from "@/src/assets/user.svg";
-import SearchIcon from "@/src/assets/search-normal.svg";
-import ArrowLeft from "@/src/assets/arrow-left.svg";
-import ArrowRight from "@/src/assets/arrow-right.svg";
 import Menuicon from "@/src/assets/menu.svg";
 import Logo from "@/src/assets/logo.svg";
-const Header = ({ setShowSidebar }) => {
+import Sidebar from "../Sidebar/Sidebar";
+import { useState } from "react";
+const Header = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <header className={styles.header}>
       <div className="container">
@@ -18,7 +16,7 @@ const Header = ({ setShowSidebar }) => {
             onClick={() => setShowSidebar(true)}
             aria-label="menu"
           >
-            <Menuicon fill="#FFD500" />
+            <Menuicon fill="#35b5b4" />
           </button>
           <div className={styles.LogoSmall}>
             <Logo />
@@ -60,11 +58,16 @@ const Header = ({ setShowSidebar }) => {
               onClick={() => setShowSidebar(true)}
               aria-label="menu"
             >
-              <Menuicon fill="#FFD500" />
+              <Menuicon fill="#35b5b4" />
             </button>
           </div>
         </div>
       </div>
+      <div
+        onClick={() => setShowSidebar(false)}
+        className={`${styles.overlay} ${showSidebar ? styles.active : ""}`}
+      />
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </header>
   );
 };

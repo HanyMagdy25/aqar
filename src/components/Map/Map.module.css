@@ -1,9 +1,9 @@
-.insights {
-  position: relative;
-  background: #f9fafb;
-  padding: 40px 0;
+.map {
+  width: 100%;
+  margin-top: 50px;
 }
 .inner {
+  width: 100%;
   padding-left: 7.5rem;
   padding-right: 7.5rem;
 }
@@ -27,74 +27,39 @@
   width: 49%;
   font-size: 16px;
 }
-.cards {
-  display: flex;
-  justify-content: space-between;
-  gap: 2%;
-  margin-top: 40px;
-}
-.oneCard {
-  background: transparent;
-  position: relative;
+.imgDiv {
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 10px;
+  position: relative;
+  display: flex;
 }
-.content {
-  position: absolute;
-  top: 50px;
-  left: 20px;
-  color: #fff;
-  padding-inline-end: 20px;
-}
-
-.oneCard img {
+.img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  min-height: 400px;
 }
-
-.content .title {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  max-width: 250px;
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  background-size: cover;
 }
-
-.content .description {
-  max-width: 150px;
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 28px;
-}
-
-.content .link {
-  border-radius: 10px;
-  border: 1px solid #fff;
-  padding: 10px 20px;
-  transition: var(--transition);
-}
-.content .link:hover {
+.showBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
   background-color: #fff;
-  color: #000;
-}
-.seeMoreDiv {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
-  margin-top: 30px;
-}
-.seeMoreBtn {
-  padding: 12px 24px;
-  border: 1px solid #002e50;
-  border-radius: 30px;
-  color: #002e50;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-.seeMoreBtn:hover {
-  background-color: #002e50;
-  color: #fff;
+  border-radius: 10px;
+  padding: 14px 24px;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 /* Media Queries */
 @media screen and (max-width: 1200px) {
@@ -128,6 +93,14 @@
     font-size: 20px;
     margin-bottom: 18px;
     max-width: 250px;
+  }
+  .img {
+    min-height: 300px;
+  }
+  .showBtn {
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 12px 22px;
   }
 }
 @media screen and (max-width: 576px) {

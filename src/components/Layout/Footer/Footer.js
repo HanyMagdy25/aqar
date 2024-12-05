@@ -52,42 +52,30 @@ const Footer = () => {
             <FooterGroup title="Company" links={servicesData} />
             <FooterGroup title="Communities" links={companyData} />
             <FooterGroup title="Useful Links" links={informationData} />
-            <div className={styles.footerRight}>
-              <div className={styles.logoCol}>
-                <Link href="/" className={styles.logo}>
-                  <LogoIcon />
-                </Link>
-              </div>
-              <p className={styles.description}>
-                Stay connected with us and let's know more stories about housing
-                & real estate and more explorer us
-              </p>
-              <div className={styles.allIcons}>
-                <Link
-                  href="/"
-                  data-social="Facebook"
-                  className={styles.oneIcon}
-                >
-                  <Facebook />
-                </Link>
-                <Link href="/" data-social="X" className={styles.oneIcon}>
-                  <X />
-                </Link>
-                <Link
-                  href="/"
-                  data-social="Instagram"
-                  className={styles.oneIcon}
-                >
-                  <Insta />
-                </Link>
-                <Link
-                  href="/"
-                  data-social="Pinterest"
-                  className={styles.oneIcon}
-                >
-                  <Pinterest />
-                </Link>
-              </div>
+          </div>
+          <div className={styles.footerRight}>
+            <div className={styles.logoCol}>
+              <Link href="/" className={styles.logo}>
+                <LogoIcon />
+              </Link>
+            </div>
+            <p className={styles.description}>
+              Stay connected with us and let's know more stories about housing &
+              real estate and more explorer us
+            </p>
+            <div className={styles.allIcons}>
+              <Link href="/" data-social="Facebook" className={styles.oneIcon}>
+                <Facebook />
+              </Link>
+              <Link href="/" data-social="X" className={styles.oneIcon}>
+                <X />
+              </Link>
+              <Link href="/" data-social="Instagram" className={styles.oneIcon}>
+                <Insta />
+              </Link>
+              <Link href="/" data-social="Pinterest" className={styles.oneIcon}>
+                <Pinterest />
+              </Link>
             </div>
           </div>
         </div>
