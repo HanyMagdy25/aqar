@@ -96,6 +96,9 @@ const PlacesSwiper = () => {
               0: {
                 slidesPerView: 1,
               },
+              350: {
+                slidesPerView: 2,
+              },
               410: {
                 slidesPerView: 3.5,
               },
