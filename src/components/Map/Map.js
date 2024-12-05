@@ -5,7 +5,7 @@ const Map = () => {
   return (
     <section className={styles.map}>
       <div className={styles.inner}>
-      <div className={styles.head}>
+        <div className={styles.head}>
           <h2 className={styles.headTitle}>Insights From Experts</h2>
           <p className={styles.headDescription}>
             Stay up to date on the latest news and analysis in real estate! Aqar

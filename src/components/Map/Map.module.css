@@ -56,10 +56,15 @@
   font-size: 28px;
   background-color: #fff;
   border-radius: 10px;
-  padding: 14px 24px;
+  padding: 14px 16px;
   cursor: pointer;
   border: none;
   outline: none;
+  min-width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 /* Media Queries */
 @media screen and (max-width: 1200px) {
@@ -100,16 +105,19 @@
   .showBtn {
     font-size: 22px;
     border-radius: 10px;
-    padding: 12px 22px;
+    /* padding: 12px 22px; */
   }
 }
 @media screen and (max-width: 576px) {
   .inner {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .headTitle {
     font-size: 1.6rem;
+  }
+  .img {
+    min-height: 260px;
   }
   .seeMoreDiv {
     display: flex;
@@ -121,9 +129,12 @@
   }
   .seeMoreBtn {
     max-width: fit-content;
-    padding: 12px 24px;
+    /* padding: 12px 24px; */
   }
   .seeMoreText {
     text-align: center;
+  }
+  .showBtn {
+    font-size: 18px;
   }
 }

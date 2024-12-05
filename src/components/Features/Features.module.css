@@ -4,7 +4,7 @@
 .oneCard {
   overflow: hidden;
   display: flex;
-  padding: 16px 14px;
+  padding: 20px 14px;
   border-radius: 20px;
   justify-content: center;
   flex-direction: column;
