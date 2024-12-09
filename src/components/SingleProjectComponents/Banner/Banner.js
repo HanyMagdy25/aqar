@@ -140,30 +140,36 @@ const Banner = ({ data }) => {
                 From: AED {data?.starting_price}
               </div>
             </div>
-            <div className={styles.developedBy}>
-              <h4 className={styles.subHeadDeveloped}>Developed By</h4>
-              <div className={styles.developerDiv}>
-                <div className={styles.developerImgDiv}>
-                  {data?.developer?.picture?.virtual_path && (
-                    <Image
-                      src={data?.developer?.picture?.virtual_path}
-                      className={styles.developerImg}
-                      alt="developer"
-                      width={80}
-                      height={80}
-                    />
-                  )}
-                </div>
-                <div className={styles.developerInfo}>
-                  <h4 className={styles.developerName}>
-                    {data?.developer?.name_en}
-                  </h4>
-                  <p className={styles.developerDescription}>
-                    {data?.developer?.description_en}
-                  </p>
+            {data?.developer?.name_en ||
+            data?.developer?.description_en ||
+            data?.developer?.picture?.virtual_path ? (
+              <div className={styles.developedBy}>
+                <h4 className={styles.subHeadDeveloped}>Developed By</h4>
+                <div className={styles.developerDiv}>
+                  <div className={styles.developerImgDiv}>
+                    {data?.developer?.picture?.virtual_path && (
+                      <Image
+                        src={data?.developer?.picture?.virtual_path}
+                        className={styles.developerImg}
+                        alt="developer"
+                        width={80}
+                        height={80}
+                      />
+                    )}
+                  </div>
+                  <div className={styles.developerInfo}>
+                    <h4 className={styles.developerName}>
+                      {data?.developer?.name_en}
+                    </h4>
+                    <p className={styles.developerDescription}>
+                      {data?.developer?.description_en}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

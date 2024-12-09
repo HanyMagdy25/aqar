@@ -156,4 +156,7 @@
     align-items: flex-start;
     left: 6%;
   }
+  .title {
+    font-size: 30px;
+  }
 }

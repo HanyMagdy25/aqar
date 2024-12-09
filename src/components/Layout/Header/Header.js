@@ -18,9 +18,9 @@ const Header = () => {
           >
             <Menuicon fill="#35b5b4" />
           </button>
-          <div className={styles.LogoSmall}>
+          <Link href="/" className={styles.LogoSmall}>
             <Logo />
-          </div>
+          </Link>
 
           <div className={styles.right}>
             <nav className={styles.nav}>
