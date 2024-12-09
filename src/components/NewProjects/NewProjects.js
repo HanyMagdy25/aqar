@@ -77,7 +77,7 @@ const arrData = [
     Area: "4k - 10k Sqft",
   },
 ];
-const NewProjects = () => {
+const NewProjects = ({ data }) => {
   return (
     <section className={styles.insights}>
       <div className={styles.inner}>
@@ -118,22 +118,51 @@ const NewProjects = () => {
               },
             }}
           >
-            {arrData?.map((item, index) => (
+            {data?.map((item, index) => (
               <SwiperSlide key={index}>
                 <div key={item.id} className={styles.oneCard}>
-                  <Image src={item.image} alt="img1" className={styles.img} />
+                  <Image
+                    src={item?.pictures?.[0]?.virtual_path}
+                    alt={item?.name_en}
+                    width={500}
+                    height={500}
+                    className={styles.img}
+                  />
                   <div className={styles.offPlan}>off-plan</div>
                   <div className={styles.share}>
                     <ShareIcon />
                   </div>
                   <div className={styles.content}>
                     <div className={styles.top}>
-                      <h3 className={styles.title}>{item.title}</h3>
+                      <Link href={`/${item?.id}`} className={styles.title}>
+                        {item?.name_en}
+                      </Link>
                       <p className={styles.by}>
-                        By <span>{item.by}</span>
+                        By{" "}
+                        <span>
+                          {item?.developer?.name_en
+                            ? item?.developer?.name_en
+                            : "Unknown"}
+                        </span>
                       </p>
                       <p className={styles.location}>
-                        Location {item.Location}
+                        Location:{" "}
+                        {item?.address?.location_area ? (
+                          <>
+                            {[
+                              item?.address?.location_area?.name,
+                              item?.address?.location_area?.city?.name_en,
+                              item?.address?.location_area?.city?.state_province
+                                ?.name,
+                              item?.address?.location_area?.city?.state_province
+                                ?.country?.name,
+                            ]
+                              .filter(Boolean)
+                              .join(", ")}
+                          </>
+                        ) : (
+                          <>Unknown</>
+                        )}
                       </p>
                     </div>
                     <div className={styles.middle}>
@@ -179,16 +208,30 @@ const NewProjects = () => {
                       </div>
                       <div className={styles.right}>
                         <div className={styles.oneItemAns}>
-                          <h4 className={styles.ans}>{item.startingPrice}</h4>
+                          <h4 className={styles.ans}>
+                            {item?.starting_price
+                              ? `From AED${" "} ${item?.starting_price}`
+                              : "Unavailable"}
+                          </h4>
                         </div>
                         <div className={styles.oneItemAns}>
-                          <h4 className={styles.ans}>{item.startingPrice}</h4>
+                          <h4 className={styles.ans}>
+                            {item?.handover_status_name
+                              ? item?.handover_status_name
+                              : "Unavailable"}
+                          </h4>
                         </div>
                         <div className={styles.oneItemAns}>
-                          <h4 className={styles.ans}>{item.PaymentPlan}</h4>
+                          <h4 className={styles.ans}>Unavailable</h4>
                         </div>
                         <div className={styles.oneItemAns}>
-                          <h4 className={styles.ans}>{item.Area}</h4>
+                          <h4 className={styles.ans}>
+                            {item?.properties?.[0]?.size_sqft?.length > 0 ? (
+                              <> {item?.properties?.[0]?.size_sqft} Sq.Ft</>
+                            ) : (
+                              <>Unknown</>
+                            )}
+                          </h4>
                         </div>
                       </div>
                     </div>

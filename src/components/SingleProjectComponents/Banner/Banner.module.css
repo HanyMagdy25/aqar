@@ -1,0 +1,352 @@
+.banner {
+  position: relative;
+  height: 100%;
+}
+.breadCrumb {
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+  color: var(--primary-color);
+  margin: 16px 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+.link.active {
+  color: #7c92a3;
+}
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: 50%;
+  height: 600px;
+  position: relative;
+}
+.share {
+  background: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 3%;
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+}
+.features {
+  position: absolute;
+  bottom: 6%;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.oneFeature {
+  background-color: #fff;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: #002e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.bottomContent {
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.titleAbout {
+  margin-bottom: 16px;
+  color: #21203c;
+  font-size: 30px;
+}
+.description {
+  color: #808080;
+  max-width: 500px;
+}
+.left {
+  width: 70%;
+}
+.right {
+  width: 30%;
+}
+.title {
+  font-size: 36px;
+  font-family: "font-medium" !important;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.location {
+  color: #002e5080;
+  font-size: 18px;
+  font-weight: 400;
+}
+.info {
+  margin-top: 20px;
+}
+.oneInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #21203c;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.spanIcon {
+  display: flex;
+}
+/****** Developed By ********/
+.developedBy {
+  margin-top: 30px;
+}
+.subHeadDeveloped {
+  color: #002e5080;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.developerDiv {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.developerImgDiv {
+  display: flex;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #d6d6d6;
+}
+.developerImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.developerName {
+  color: #21203c;
+  font-size: 20px;
+}
+/* .developerInfo {
+} */
+.developerName {
+  color: #21203c;
+  font-size: 18px;
+  font-weight: 500;
+}
+.developerDescription {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 400;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1; /* Number of lines to show */
+  line-clamp: 1;
+  text-overflow: ellipsis;
+}
+/******* Anemities *******/
+.anemitiesTitle {
+  color: #002e50;
+  font-size: 18px;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+.anemities {
+  display: flex;
+  gap: 10px;
+  max-width: 630px;
+  flex-wrap: wrap;
+}
+.oneAnemity {
+  border: 0.91px solid #cbd5e1;
+  width: 140px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 16px;
+}
+.nameAnemity {
+  color: #21203c;
+  font-size: 14px;
+  font-weight: 500;
+}
+.seeMoreAnemities {
+  margin-top: 20px;
+  white-space: nowrap;
+  border-radius: 30px;
+  padding: 10px 26px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #002e50;
+  color: #242436;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.seeMoreAnemities:hover {
+  background-color: #002e50;
+  color: #fff;
+}
+/******* Bottom Section ********/
+.leftBottom {
+  width: 70%;
+}
+.rightBottom {
+  width: 30%;
+}
+.bottomSection {
+  margin-top: 20px;
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputDiv {
+  /* border: 1px solid #cbcbcb; */
+  margin-bottom: 10px;
+}
+.form {
+  margin-top: 16px;
+}
+
+.inputDiv input,
+.inputDiv textarea {
+  width: 100% !important;
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.9rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border: 0.98px solid #cdcfcf;
+  resize: none;
+  height: unset !important;
+}
+.inputDiv input:focus,
+.inputDiv textarea:focus {
+  outline: none;
+}
+.inputDiv .flag-dropdown {
+  display: none !important;
+}
+.formDesc {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+.submitBtn {
+  margin-top: 16px;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  padding: 10px 20px;
+  min-height: 45px;
+  min-width: 200px;
+  font-size: 17px;
+}
+/* Small Banner */
+.smallBanner {
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+  margin-top: 40px;
+}
+.smallBannerInner {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 333px;
+  display: flex;
+}
+/*  */
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .bottomContent,
+  .bottomSection,
+  .smallBanner {
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .breadCrumb {
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+    flex-wrap: wrap;
+  }
+  .left,
+  .leftBottom {
+    width: 100%;
+  }
+  .right,
+  .rightBottom {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .breadCrumb,
+  .bottomContent,
+  .bottomSection,
+  .smallBanner {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+  .imgDiv {
+    height: 500px;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .breadCrumb,
+  .bottomContent,
+  .bottomSection,
+  .smallBanner {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .imgDiv {
+    height: 400px;
+  }
+  .features {
+    flex-direction: column;
+    align-items: flex-start;
+    left: 6%;
+  }
+  .title {
+    font-size: 26px;
+  }
+}

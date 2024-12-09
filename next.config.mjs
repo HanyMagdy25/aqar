@@ -1,7 +1,9 @@
 const nextConfig = {
   reactStrictMode: true, // Enables React's strict mode for highlighting potential issues
   swcMinify: true, // Enables the SWC compiler for faster builds and smaller bundles
-
+  images: {
+    domains: ["cdn.faisalkc.com", "cdn.maxhomeproperty.com"], // Add the hostname to the list of allowed image domains
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/, // Match .svg files

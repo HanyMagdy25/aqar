@@ -12,7 +12,7 @@ import Features from "@/src/components/Features/Features";
 import SecondBanner from "@/src/components/SecondBanner/SecondBanner";
 import Map from "@/src/components/Map/Map";
 
-export default function Home() {
+export default function Home({ projectList }) {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
@@ -30,7 +30,7 @@ export default function Home() {
           <Features />
           <Map />
           <SecondBanner />
-          <NewProjects />
+          <NewProjects data={projectList} />
           <Insights />
           <NewsSubscribe />
           <Footer />
@@ -43,3 +43,20 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
+  // const { query } = context?.req || {};
+  // const { id } = query || {};
+  // console.log("id", id);
+  const response3 = await fetch(
+    "https://aqar.api.mvp-apps.ae/api/mob_app/public/project/getProjectList?page=1&limit=10"
+  );
+  const data3 = await response3.json();
+
+  return {
+    props: {
+      projectList: data3.data,
+    },
+  };
+};
