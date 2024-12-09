@@ -13,8 +13,33 @@ import EmailIcon from "@/src/assets/email.svg";
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useState } from "react";
 
 const Properties = ({ data }) => {
+  const [projects, setProjects] = useState(data);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Function to fetch more data
+  const fetchMoreProjects = async () => {
+    // const timeout = setTimeout(() => setIsLoading(false), 6000);
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://aqar.api.mvp-apps.ae/api/mob_app/public/project/getProjectList?page=${
+          page + 1
+        }&limit=5`
+      );
+      // clearTimeout(timeout);
+      const newData = await response.json();
+      setProjects((prev) => [...prev, ...newData.data]);
+      setPage((prev) => prev + 1);
+    } catch (error) {
+      console.error("Failed to load more projects:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <section className={styles.insights}>
       <div className={styles.inner}>
@@ -30,6 +55,12 @@ const Properties = ({ data }) => {
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
+            className="swiperLoading"
+            onReachEnd={() => {
+              if (!isLoading) {
+                fetchMoreProjects();
+              }
+            }}
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -54,16 +85,18 @@ const Properties = ({ data }) => {
               },
             }}
           >
-            {data?.map((item, index) => (
+            {projects?.map((item, index) => (
               <SwiperSlide key={index}>
                 <div key={item.id} className={styles.oneCard}>
-                  <Image
-                    src={item?.pictures?.[0]?.virtual_path}
-                    alt={item?.name_en}
-                    width={500}
-                    height={500}
-                    className={styles.img}
-                  />
+                  <Link href={`/${item?.id}`}>
+                    <Image
+                      src={item?.pictures?.[0]?.virtual_path}
+                      alt={item?.name_en}
+                      width={500}
+                      height={500}
+                      className={styles.img}
+                    />
+                  </Link>
                   {item?.property_type?.name_en && (
                     <div className={styles.offPlan}>
                       {item?.property_type?.name_en}
@@ -227,6 +260,15 @@ const Properties = ({ data }) => {
                 </div>
               </SwiperSlide>
             ))}
+
+            {isLoading && (
+              <SwiperSlide>
+                <div className="loader">
+                  {/* <p>Loading...</p> */}
+                  <div className="spinner"></div>
+                </div>
+              </SwiperSlide>
+            )}
           </Swiper>
         </div>
       </div>

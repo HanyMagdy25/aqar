@@ -2,12 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectList.module.css";
-import ShareIcon from "@/src/assets/Share.svg";
-import BedroomIcon from "@/src/assets/bedroom.svg";
-import BathroomsIcon from "@/src/assets/bathroom.svg";
-import AreaIcon from "@/src/assets/area.svg";
-import WhatsAppIcon from "@/src/assets/whatsapp.svg";
-import PhoneIcon from "@/src/assets/phone.svg";
 import LocationIcon from "../../../assets/location.svg";
 import BedIcon from "../../../assets/singleProject/bed.svg";
 

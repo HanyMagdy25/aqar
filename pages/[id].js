@@ -91,7 +91,7 @@ export const getServerSideProps = async (context) => {
     );
     const data2 = await response2.json();
     const response3 = await fetch(
-      "https://aqar.api.mvp-apps.ae/api/mob_app/public/project/getProjectList?page=1&limit=10"
+      "https://aqar.api.mvp-apps.ae/api/mob_app/public/project/getProjectList?page=1&limit=5"
     );
     const data3 = await response3.json();
     const response4 = await fetch(

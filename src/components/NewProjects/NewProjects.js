@@ -2,11 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./NewProjects.module.css";
-import img1 from "../../assets/project (1).png";
-import img2 from "../../assets/project (2).png";
-import img3 from "../../assets/project (3).png";
-import img4 from "../../assets/project (4).png";
-import img5 from "../../assets/project (5).png";
 import ShareIcon from "../../assets/Share.svg";
 import ApartmentIcon from "../../assets/Apartment.svg";
 import PenthousesIcon from "../../assets/PENTHOUSES.svg";
@@ -19,65 +14,31 @@ import WhatsAppIcon from "../../assets/whats.svg";
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useState } from "react";
 
-const arrData = [
-  {
-    id: 1,
-    image: img1,
-    by: "SOBHA Realty",
-    Location: "city, area",
-    title: "Project Name 1",
-    startingPrice: "AED 37,000,000",
-    handover: "AUG 2023",
-    PaymentPlan: "30:40:30",
-    Area: "4k - 10k Sqft",
-  },
-  {
-    id: 2,
-    image: img2,
-    by: "SOBHA Realty",
-    Location: "city, area",
-    title: "Project Name 2",
-    startingPrice: "AED 37,000,000",
-    handover: "AUG 2023",
-    PaymentPlan: "30:40:30",
-    Area: "4k - 10k Sqft",
-  },
-  {
-    id: 3,
-    image: img3,
-    by: "SOBHA Realty",
-    Location: "city, area",
-    title: "Project Name 3",
-    startingPrice: "AED 37,000,000",
-    handover: "AUG 2023",
-    PaymentPlan: "30:40:30",
-    Area: "4k - 10k Sqft",
-  },
-  {
-    id: 4,
-    image: img4,
-    by: "SOBHA Realty",
-    Location: "city, area",
-    title: "Project Name 4",
-    startingPrice: "AED 37,000,000",
-    handover: "AUG 2023",
-    PaymentPlan: "30:40:30",
-    Area: "4k - 10k Sqft",
-  },
-  {
-    id: 5,
-    image: img5,
-    by: "SOBHA Realty",
-    Location: "city, area",
-    title: "Project Name 5",
-    startingPrice: "AED 37,000,000",
-    handover: "AUG 2023",
-    PaymentPlan: "30:40:30",
-    Area: "4k - 10k Sqft",
-  },
-];
 const NewProjects = ({ data }) => {
+  const [projects, setProjects] = useState(data); // Initialize with initial data
+  const [page, setPage] = useState(1); // Track the current page
+  const [isLoading, setIsLoading] = useState(false); // To avoid multiple fetches
+
+  // Function to fetch more data
+  const fetchMoreProjects = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://aqar.api.mvp-apps.ae/api/mob_app/public/project/getProjectList?page=${
+          page + 1
+        }&limit=5`
+      );
+      const newData = await response.json();
+      setProjects((prev) => [...prev, ...newData.data]); // Append new data
+      setPage((prev) => prev + 1); // Increment the page number
+    } catch (error) {
+      console.error("Failed to load more projects:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <section className={styles.insights}>
       <div className={styles.inner}>
@@ -94,6 +55,12 @@ const NewProjects = ({ data }) => {
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
+            className="swiperLoading"
+            onReachEnd={() => {
+              if (!isLoading) {
+                fetchMoreProjects();
+              }
+            }}
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -118,16 +85,18 @@ const NewProjects = ({ data }) => {
               },
             }}
           >
-            {data?.map((item, index) => (
+            {projects?.map((item, index) => (
               <SwiperSlide key={index}>
                 <div key={item.id} className={styles.oneCard}>
-                  <Image
-                    src={item?.pictures?.[0]?.virtual_path}
-                    alt={item?.name_en}
-                    width={500}
-                    height={500}
-                    className={styles.img}
-                  />
+                  <Link href={`/${item?.id}`}>
+                    <Image
+                      src={item?.pictures?.[0]?.virtual_path}
+                      alt={item?.name_en}
+                      width={500}
+                      height={500}
+                      className={styles.img}
+                    />
+                  </Link>
                   <div className={styles.offPlan}>off-plan</div>
                   <div className={styles.share}>
                     <ShareIcon />
@@ -253,6 +222,14 @@ const NewProjects = ({ data }) => {
                 </div>
               </SwiperSlide>
             ))}
+            {isLoading && (
+              <SwiperSlide>
+                <div className="loader">
+                  {/* <p>Loading...</p> */}
+                  <div className="spinner"></div>
+                </div>
+              </SwiperSlide>
+            )}
           </Swiper>
         </div>
         <div className={styles.seeMoreDiv}>
